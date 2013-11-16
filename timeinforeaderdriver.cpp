@@ -87,7 +87,6 @@ void TimeInfoReaderDriver::setState(TimeInfoReaderDriver::State state)
     case State::sleeping:
         m_port->setDataTerminalReady(false);
         m_port->setRequestToSend(false);
-        sendRequest();
         m_timer->setInterval(awaitingNextReadingPeriod);
         m_timer->start();
         break;
